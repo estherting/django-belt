@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <style>
+      nav a {
+        float: right;
+        margin-right: 30px;
+      }
+      label {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/logout">Logout</a>
+      <a href="/travels">Home</a>
+    </nav>
+
+    <div class="container">
+      <h1>{{trip.destination}}</h1>
+      <p>Planned by: {{trip.planned_by.name}}</p>
+      <p>Description: {{trip.description}}</p>
+      <p>Travel Date From: {{trip.date_from}}</p>
+      <p>Travel Date To: {{trip.date_to}}</p>
+
+      <h2>Other users joining the trip:</h2>
+      {% for user in attended_by%}
+        <p>{{user.name}}</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
